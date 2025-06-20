@@ -467,7 +467,7 @@ h1, h2, h3, h4, h5, h6 {
 .process-steps {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 30px;
     position: relative;
     max-width: 1000px;
     margin: 0 auto;
@@ -496,14 +496,17 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 30px;
     box-shadow: 0 0 15px rgba(160, 48, 255, 0.7);
     z-index: 2;
+    position: relative;
 }
 
 .timeline-line {
     width: 2px;
-    background-color: #A030FF;
+    background: linear-gradient(to bottom, #A030FF, #8c52ff);
     flex-grow: 1;
     margin-top: 5px;
     box-shadow: 0 0 10px rgba(160, 48, 255, 0.5);
+    position: relative;
+    height: calc(100% - 25px);
 }
 
 .step-content {
@@ -516,6 +519,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid #8c52ff;
     box-shadow: 0 0 15px rgba(59, 12, 110, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 300px;
 }
 
 .step-header {
@@ -532,6 +536,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 5px;
     text-shadow: 0 0 10px rgba(160, 48, 255, 0.5);
     letter-spacing: 1px;
+    text-align: left;
 }
 
 .step-content h3 {
@@ -540,6 +545,7 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 15px;
+    text-align: left;
 }
 
 .step-description {
@@ -551,14 +557,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .step-image {
-    width: 50%;
+    width: 100%;
     border-radius: 8px;
     overflow: hidden;
     margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .step-image img {
-    width: 50%;
+    width: 100%;
+    max-width: 300px;
     height: auto;
     border-radius: 8px;
     border: 1px solid rgba(140, 82, 255, 0.3);
@@ -693,6 +702,12 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 10px;
     padding-right: 30px;
     color: #F5F5F5;
+    cursor: pointer; /* Añadir cursor pointer para indicar que es clickeable */
+    transition: color 0.3s ease;
+}
+
+.faq-item h3:hover {
+    color: #A030FF;
 }
 
 .faq-item p {
@@ -705,7 +720,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .faq-icon {
     position: absolute;
-    top: 20px;
+    top: 15px;
     right: 20px;
     font-size: 20px;
     color: #A030FF;
@@ -718,6 +733,8 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50%;
     border: 1px solid #A030FF;
     transition: all 0.3s ease;
+    line-height: 0; /* Esto ayuda a centrar el símbolo verticalmente */
+    padding-bottom: 2px; /* Ajuste fino para centrar el símbolo */
 }
 
 .faq-icon:hover {
@@ -943,6 +960,27 @@ h1, h2, h3, h4, h5, h6 {
     
     .process-step {
         flex-direction: column;
+    }
+    
+    .process-timeline {
+        width: 100%;
+        flex-direction: row;
+        margin-bottom: 15px;
+    }
+    
+    .timeline-dot {
+        margin-top: 0;
+    }
+    
+    .timeline-line {
+        width: calc(100% - 25px);
+        height: 2px;
+        margin-top: 0;
+        margin-left: 5px;
+    }
+    
+    .step-image img {
+        max-width: 100%;
     }
     
     .step-number {

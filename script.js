@@ -16,29 +16,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// FAQ accordion functionality
-const faqItems = document.querySelectorAll('.faq-item');
-
-faqItems.forEach(item => {
-    const icon = item.querySelector('.faq-icon');
-    const content = item.querySelector('p');
-    
-    // Initially hide the content
-    content.style.display = 'none';
-    
-    icon.addEventListener('click', () => {
-        // Toggle content visibility
-        if (content.style.display === 'none') {
-            content.style.display = 'block';
-            icon.textContent = '-';
-            item.style.boxShadow = '0 0 25px rgba(160, 48, 255, 0.7)';
-        } else {
-            content.style.display = 'none';
-            icon.textContent = '+';
-            item.style.boxShadow = '0 0 15px rgba(59, 12, 110, 0.3)';
-        }
-    });
-});
+// Eliminar esta implementación antigua de FAQ
+// const faqItems = document.querySelectorAll('.faq-item');
+// 
+// faqItems.forEach(item => {
+//     const icon = item.querySelector('.faq-icon');
+//     const content = item.querySelector('p');
+//     
+//     // Initially hide the content
+//     content.style.display = 'none';
+//     
+//     icon.addEventListener('click', () => {
+//         // Toggle content visibility
+//         if (content.style.display === 'none') {
+//             content.style.display = 'block';
+//             icon.textContent = '-';
+//             item.style.boxShadow = '0 0 25px rgba(160, 48, 255, 0.7)';
+//         } else {
+//             content.style.display = 'none';
+//             icon.textContent = '+';
+//             item.style.boxShadow = '0 0 15px rgba(59, 12, 110, 0.3)';
+//         }
+//     });
+// });
 
 // Header scroll effect
 window.addEventListener('scroll', () => {
@@ -136,6 +136,7 @@ function initScrollAnimations() {
 }
 
 // Función para animar las FAQ con efectos suaves
+// Reemplazar la función enhanceFaqAnimations existente con esta versión mejorada
 function enhanceFaqAnimations() {
     const faqItems = document.querySelectorAll('.faq-item');
     
@@ -150,7 +151,8 @@ function enhanceFaqAnimations() {
         content.style.transform = 'translateY(-10px)';
         content.style.transition = 'opacity 0.5s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1)';
         
-        icon.addEventListener('click', () => {
+        // Función para alternar la visibilidad del contenido
+        const toggleContent = () => {
             // Toggle content visibility con animación
             if (content.style.display === 'none') {
                 content.style.display = 'block';
@@ -184,7 +186,11 @@ function enhanceFaqAnimations() {
                     item.style.borderLeft = '3px solid #A030FF';
                 }, 500);
             }
-        });
+        };
+        
+        // Añadir evento de clic tanto al ícono como al título
+        icon.addEventListener('click', toggleContent);
+        heading.addEventListener('click', toggleContent);
     });
     
     // Mostrar el primer elemento FAQ por defecto con animación
@@ -365,7 +371,7 @@ document.addEventListener('DOMContentLoaded', function() {
     addNeonEffect();
     addGlowEffects();
     initScrollAnimations();
-    enhanceFaqAnimations();
+    enhanceFaqAnimations(); // Esta función ya muestra el primer FAQ por defecto
     addParticleEffect();
     try {
         // Verificar si GSAP está disponible
@@ -377,12 +383,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     addParallaxEffect();
     
-    // Mostrar primer FAQ item por defecto
-    const firstFaqItem = document.querySelector('.faq-item');
-    if (firstFaqItem) {
-        const content = firstFaqItem.querySelector('p');
-        const icon = firstFaqItem.querySelector('.faq-icon');
-        content.style.display = 'block';
-        icon.textContent = '-';
-    }
+    // Eliminar este código duplicado que podría estar causando conflictos
+    // const firstFaqItem = document.querySelector('.faq-item');
+    // if (firstFaqItem) {
+    //     const content = firstFaqItem.querySelector('p');
+    //     const icon = firstFaqItem.querySelector('.faq-icon');
+    //     content.style.display = 'block';
+    //     icon.textContent = '-';
+    // }
 });
