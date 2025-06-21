@@ -879,9 +879,17 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 2;
     opacity: 0;
     pointer-events: none;
-    animation-duration: 10s;
-    animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+    bottom: 0;
+    right: 0;
+}
+
+/* Animación específica para el cohete que va de esquina inferior derecha a superior izquierda */
+@keyframes rocketFlyDiagonal {
+    0% { opacity: 0; transform: translate(0, 0) rotate(10deg); }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-100vw, -100vh) rotate(-10deg); }
 }
 
 /* Animaciones para la oveja en cohete */
@@ -1560,7 +1568,14 @@ h1, h2, h3, h4, h5, h6 {
 .step-content h3 {
     font-size: 20px;
     margin-bottom: 10px;
-    color: #A030FF;
+    background: radial-gradient(
+        circle,
+        #A030FF 50%,
+        #12B0E9 65%,
+        #12B0E9 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -1904,11 +1919,35 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
     }
     
-    .process-step {
-        flex-direction: column;
+    
+    .process-steps {
+      gap: 15px;
+    }
+    
+    .process-timeline {
+        display: none;
+    }
+    
+    .timeline-dot {
+        display: none;
+    }
+    
+    .timeline-line-vertical {
+        display: none;
+    }
+    
+    .timeline-line {
+        display: none;
+    }
+    .step-image img {
+        max-width: 100%;
     }
     
     .step-number {
         margin-bottom: 10px;
+    }
+    
+    .rocket-sheep {
+        display: none;
     }
 }

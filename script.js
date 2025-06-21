@@ -327,42 +327,23 @@ function addParallaxEffect() {
     });
 }
 
-// Función para animar la oveja en cohete de forma aleatoria
+// Función para animar la oveja en cohete una sola vez
 function animateRocketSheep() {
     const rocketSheep = document.querySelector('.rocket-sheep');
     if (!rocketSheep) return;
     
-    // Definir las posibles animaciones
-    const animations = [
-        'flyTopRight',
-        'flyBottomRight',
-        'flyTopLeft',
-        'flyBottomLeft'
-    ];
-    
-    // Función para iniciar una animación aleatoria
-    function startRandomAnimation() {
-        // Seleccionar una animación aleatoria
-        const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
-        
-        // Reiniciar el estado de la animación
-        rocketSheep.style.animation = 'none';
-        rocketSheep.offsetHeight; // Trigger reflow
-        
-        // Posicionar aleatoriamente en el eje Y dentro del hero
-        const randomYPosition = 20 + Math.random() * 60; // Entre 20% y 80% del alto
-        rocketSheep.style.top = `${randomYPosition}%`;
-        
-        // Aplicar la animación
-        rocketSheep.style.animation = `${randomAnimation} 10s ease-in-out forwards`;
-        
-        // Programar la próxima animación después de un tiempo aleatorio
-        const nextAnimationDelay = 15000 + Math.random() * 20000; // Entre 15 y 35 segundos
-        setTimeout(startRandomAnimation, nextAnimationDelay);
+    // Verificar si es un dispositivo móvil
+    if (window.innerWidth <= 768) {
+        // No ejecutar la animación en dispositivos móviles
+        return;
     }
     
-    // Iniciar la primera animación después de un breve retraso
-    setTimeout(startRandomAnimation, 3000);
+    // Reiniciar el estado de la animación
+    rocketSheep.style.animation = 'none';
+    rocketSheep.offsetHeight; // Trigger reflow
+    
+    // Aplicar la animación una sola vez
+    rocketSheep.style.animation = 'rocketFlyDiagonal 3s ease-in-out forwards';
 }
 
 // Ejecutar la función cuando el DOM esté cargado
@@ -371,7 +352,7 @@ document.addEventListener('DOMContentLoaded', function() {
     addNeonEffect();
     addGlowEffects();
     initScrollAnimations();
-    enhanceFaqAnimations(); // Esta función ya muestra el primer FAQ por defecto
+    enhanceFaqAnimations();
     addParticleEffect();
     try {
         // Verificar si GSAP está disponible
@@ -383,12 +364,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     addParallaxEffect();
     
-    // Eliminar este código duplicado que podría estar causando conflictos
-    // const firstFaqItem = document.querySelector('.faq-item');
-    // if (firstFaqItem) {
-    //     const content = firstFaqItem.querySelector('p');
-    //     const icon = firstFaqItem.querySelector('.faq-icon');
-    //     content.style.display = 'block';
-    //     icon.textContent = '-';
-    // }
+    // Ejecutar la animación del cohete después de un breve retraso
+    setTimeout(animateRocketSheep, 1000);
 });
