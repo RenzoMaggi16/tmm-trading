@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, #12b0e9, transparent);
     transition: 0.5s;
     z-index: -1;
 }
@@ -434,8 +434,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: rgba(10, 5, 18, 0.7);
     border-radius: 10px;
     margin: 0 auto;
-    border: 1px solid #8c52ff;
-    box-shadow: 0 0 20px rgba(18, 176, 233, 0.5);
+    border: 1px solid rgba(18, 176, 233, 0.5);
     position: relative;
     overflow: hidden;
 }
@@ -961,21 +960,26 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
     }
     
-    .process-step {
-        flex-direction: column;
+    
+    .process-steps {
+      gap: 0px;
     }
     
     .process-timeline {
-        width: 100%;
-        flex-direction: row;
-        margin-bottom: 15px;
+        display: none;
+        
     }
     
     .timeline-dot {
-        margin-top: 0;
+        display: none;
+    }
+    
+    .timeline-line-vertical {
+        display: none;
     }
     
     .timeline-line {
+        display: none;
         width: calc(100% - 25px);
         height: 2px;
         margin-top: 0;
@@ -1441,7 +1445,7 @@ h1, h2, h3, h4, h5, h6 {
 .process-steps {
     display: flex;
     flex-direction: column;
-    gap: 0; /* Reducimos el gap para que las líneas se conecten mejor */
+    gap: 200px; /* Reducimos el gap para que las líneas se conecten mejor */
     position: relative;
     max-width: 1000px;
     margin: 0 auto;

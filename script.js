@@ -157,7 +157,7 @@ function enhanceFaqAnimations() {
             if (content.style.display === 'none') {
                 content.style.display = 'block';
                 icon.textContent = '-';
-                item.style.boxShadow = '0 0 25px rgba(160, 48, 255, 0.7)';
+                item.style.boxShadow = '0 0 25pxrgba(18, 176, 233, 0.69)';
                 
                 // Animar la aparición del contenido (usar requestAnimationFrame para mejor rendimiento)
                 requestAnimationFrame(() => {
@@ -166,11 +166,11 @@ function enhanceFaqAnimations() {
                 });
                 
                 // Animar el título
-                heading.style.color = '#A030FF';
+                heading.style.color = '#12B0E9';
                 heading.style.transition = 'color 0.4s cubic-bezier(0.215, 0.61, 0.355, 1)';
                 
                 // Animar el borde
-                item.style.borderLeft = '5px solid #A030FF';
+                item.style.borderLeft = '5px solid #12B0E9';
                 item.style.transition = 'border-left 0.4s cubic-bezier(0.215, 0.61, 0.355, 1), box-shadow 0.4s cubic-bezier(0.215, 0.61, 0.355, 1)';
             } else {
                 // Animar la desaparición del contenido
@@ -183,7 +183,7 @@ function enhanceFaqAnimations() {
                     icon.textContent = '+';
                     item.style.boxShadow = '0 0 15px rgba(59, 12, 110, 0.3)';
                     heading.style.color = '#F5F5F5';
-                    item.style.borderLeft = '3px solid #A030FF';
+                    item.style.borderLeft = '3px solid #12B0E9';
                 }, 500);
             }
         };
@@ -202,9 +202,9 @@ function enhanceFaqAnimations() {
         
         content.style.display = 'block';
         icon.textContent = '-';
-        firstFaqItem.style.boxShadow = '0 0 25px rgba(160, 48, 255, 0.7)';
-        heading.style.color = '#A030FF';
-        firstFaqItem.style.borderLeft = '5px solid #A030FF';
+        firstFaqItem.style.boxShadow = '0 0 25pxrgba(18, 176, 233, 0.72)';
+        heading.style.color = '#12B0E9';
+        firstFaqItem.style.borderLeft = '5px solid #12B0E9';
         
         // Usar requestAnimationFrame para mejor rendimiento
         requestAnimationFrame(() => {
