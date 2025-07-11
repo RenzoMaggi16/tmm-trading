@@ -81,12 +81,17 @@ function initAnimations() {
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            // Activar la animación incluso cuando el elemento está cerca pero no visible aún
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+                // Aplicar la animación inmediatamente sin retraso
                 entry.target.classList.add('animate');
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, { 
+        threshold: 0, // Detectar cualquier parte del elemento
+        rootMargin: '0px 0px 100% 0px' // Activar cuando el elemento está a una pantalla completa de distancia
+    });
     
     elements.forEach(element => {
         observer.observe(element);
@@ -99,19 +104,18 @@ function initScrollAnimations() {
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            // Activar la animación incluso cuando el elemento está cerca pero no visible aún
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
                 // Determinar qué tipo de animación aplicar según el elemento
                 if (entry.target.classList.contains('hero') || entry.target.closest('.hero')) {
                     entry.target.classList.add('fade-in-down');
                 } else if (entry.target.tagName === 'H1' || entry.target.classList.contains('section-title')) {
                     entry.target.classList.add('fade-in');
-                    // Aplicar pulse con un retraso pero sin setTimeout para evitar saltos
                     entry.target.classList.add('pulse-delayed');
                 } else if (entry.target.classList.contains('about-text') || entry.target.closest('.about-text')) {
                     entry.target.classList.add('fade-in-left');
                 } else if (entry.target.classList.contains('video-placeholder') || entry.target.classList.contains('logo-placeholder')) {
                     entry.target.classList.add('fade-in');
-                    // Aplicar float con un retraso pero sin setTimeout para evitar saltos
                     entry.target.classList.add('float-delayed');
                 } else if (entry.target.classList.contains('apply-button-container')) {
                     entry.target.classList.add('fade-in');
@@ -126,8 +130,8 @@ function initScrollAnimations() {
             }
         });
     }, { 
-        threshold: 0.1, // Reducir el threshold para que las animaciones se activen más gradualmente
-        rootMargin: '0px 0px -50px 0px' // Añadir un margen para que las animaciones se activen un poco antes
+        threshold: 0, // Detectar cualquier parte del elemento
+        rootMargin: '0px 0px 100% 0px' // Activar cuando el elemento está a una pantalla completa de distancia
     });
     
     animateElements.forEach(element => {
