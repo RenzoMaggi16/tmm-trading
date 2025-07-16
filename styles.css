@@ -7,6 +7,52 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:wght@300;400;500;600;700&display=swap');
 
+/* Estilos para el video de introducción */
+#intro-video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100001; /* Mayor que el canvas de fluido */
+    background-color: #0A0512;
+    transition: opacity 1s ease-in-out;
+}
+
+#intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(160, 48, 255, 0.1) 0%, rgba(10, 5, 18, 0.92) 70%);
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* Clase para ocultar el contenedor de video */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Clase para el contenido principal inicialmente oculto */
+.content-hidden {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Clase para mostrar el contenido principal */
+.content-visible {
+    opacity: 1;
+}
+
 html {
     scroll-behavior: smooth;
 }

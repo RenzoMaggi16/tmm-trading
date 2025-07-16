@@ -350,12 +350,82 @@ function animateRocketSheep() {
     rocketSheep.style.animation = 'rocketFlyDiagonal 3s ease-in-out forwards';
 }
 
+// Función para detectar si el dispositivo es móvil
+function isMobileDevice() {
+    return (window.innerWidth <= 768) || 
+           (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+}
+
+// Función para inicializar el video de introducción
+function initIntroVideo() {
+    const videoContainer = document.getElementById('intro-video-container');
+    const video = document.getElementById('intro-video');
+    const mainContent = document.body;
+    
+    // Ocultar inicialmente el contenido principal
+    Array.from(mainContent.children).forEach(child => {
+        if (child.id !== 'intro-video-container' && child.id !== 'fluid') {
+            child.classList.add('content-hidden');
+        }
+    });
+    
+    // Determinar qué video cargar según el dispositivo
+    const videoPath = isMobileDevice() 
+        ? '/assets/videos/Mobile.mp4' 
+        : '/assets/videos/Desktop.mp4';
+    
+    // Configurar el video
+    video.src = videoPath;
+    video.autoplay = true;
+    video.muted = true;
+    video.playsInline = true;
+    
+    // Cuando el video termine, mostrar el contenido principal
+    video.addEventListener('ended', () => {
+        // Ocultar el contenedor de video
+        videoContainer.classList.add('hidden');
+        
+        // Mostrar el contenido principal con un pequeño retraso para la transición
+        setTimeout(() => {
+            Array.from(mainContent.children).forEach(child => {
+                if (child.id !== 'intro-video-container' && child.id !== 'fluid') {
+                    child.classList.remove('content-hidden');
+                    child.classList.add('content-visible');
+                }
+            });
+            
+            // Iniciar las animaciones existentes después de que aparezca el contenido
+            initAnimations();
+            initScrollAnimations();
+        }, 500);
+    });
+    
+    // Si hay algún problema con la reproducción del video
+    video.addEventListener('error', () => {
+        console.error('Error al reproducir el video de introducción');
+        videoContainer.classList.add('hidden');
+        
+        // Mostrar el contenido principal inmediatamente
+        Array.from(mainContent.children).forEach(child => {
+            if (child.id !== 'intro-video-container' && child.id !== 'fluid') {
+                child.classList.remove('content-hidden');
+                child.classList.add('content-visible');
+            }
+        });
+        
+        // Iniciar las animaciones existentes
+        initAnimations();
+        initScrollAnimations();
+    });
+}
+
 // Ejecutar la función cuando el DOM esté cargado
 document.addEventListener('DOMContentLoaded', function() {
-    initAnimations();
+    initIntroVideo();
+    
+    // El resto de inicializaciones se harán independientemente del video
     addNeonEffect();
     addGlowEffects();
-    initScrollAnimations();
     enhanceFaqAnimations();
     addParticleEffect();
     addParallaxEffect();
