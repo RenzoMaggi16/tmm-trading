@@ -1,0 +1,68 @@
+    <!-- Success Rate Section -->
+    <section class="success-rate">
+        <div class="container">
+            <p>TU ÉXITO</p>
+            <h1>LA TASA DE ÉXITO DE NUESTROS ESTUDIANTES ES NUESTRA MEDIDA DEFINITIVA DEL ÉXITO</h1>
+            <div class="video-placeholder">
+                <img src="/assets/images/ChatGPT Image 17 abr 2025, 06_24_30 p.m..png" alt="Success Rate" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+            </div>
+        </div>
+    </section>
+    <!-- Application Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="process-steps">
+                <!-- Eliminamos la línea vertical única -->
+                
+                <div class="process-step">
+                    <div class="process-timeline">
+                        <div class="timeline-dot"></div>
+                        <!-- Agregamos línea vertical hacia abajo desde el primer punto -->
+                        <div class="timeline-line-vertical timeline-line-top"></div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <p class="step-number">PASO UNO</p>
+                            <h3>PROCESO DE APLICACIÓN</h3>
+                        </div>
+                        <p class="step-description">Cuéntanos quién eres, qué te hace especial, tu visión del futuro y cómo podemos apoyarte para llegar allí (más rápido).</p>
+                    </div>
+                </div>
+    
+                <div class="process-step">
+                    <div class="process-timeline">
+                        <div class="timeline-dot"></div>
+                        <!-- Agregamos líneas verticales arriba y abajo del punto central -->
+                        <div class="timeline-line-vertical timeline-line-top"></div>
+                        <div class="timeline-line-vertical timeline-line-bottom"></div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <p class="step-number">PASO DOS</p>
+                            <h3>LLAMADA DE EVALUACIÓN</h3>
+                        </div>
+                        <p class="step-description">Evaluaré tu aplicación junto contigo y te recomendaré puntos de acción, basados en tu visión</p>
+                    </div>
+                </div>
+    
+                <div class="process-step">
+                    <div class="process-timeline">
+                        <div class="timeline-dot"></div>
+                        <!-- Agregamos línea vertical hacia arriba desde el último punto -->
+                        <div class="timeline-line-vertical timeline-line-bottom"></div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <p class="step-number">PASO TRES</p>
+                            <h3>COMIENZA EL VIAJE</h3>
+                        </div>
+                        <p class="step-description">Serás recibido personalmente en nuestra comunidad, conectado con tu mentor 1-1 (él es parte de tu producto) y vinculado a nuestras sesiones diarias en vivo.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="apply-button-container">
+                <a href="#" class="btn-primary">APLICAR</a>
+            </div>
+        </div>
+    </section>

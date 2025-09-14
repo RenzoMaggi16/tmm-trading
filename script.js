@@ -77,6 +77,7 @@ function addGlowEffects() {
 
 // Initialize animations on scroll
 function initAnimations() {
+    // Modificado para excluir elementos dentro de la sección de planes
     const elements = document.querySelectorAll('.stat-item, .secret-card, .process-step, .faq-item');
     
     const observer = new IntersectionObserver((entries) => {
@@ -100,7 +101,8 @@ function initAnimations() {
 
 // Función para animar elementos al hacer scroll
 function initScrollAnimations() {
-    const animateElements = document.querySelectorAll('.hero h1, .hero p, .section-title, h1, .about-text p, .video-placeholder, .apply-button-container, .logo-placeholder');
+    // Modificado para excluir elementos dentro de la sección de planes
+    const animateElements = document.querySelectorAll('.hero h1, .hero p, .about-text p, .video-placeholder, .apply-button-container, .logo-placeholder, .section-title:not(.planes .section-title), h1:not(.planes h1)');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -110,8 +112,11 @@ function initScrollAnimations() {
                 if (entry.target.classList.contains('hero') || entry.target.closest('.hero')) {
                     entry.target.classList.add('fade-in-down');
                 } else if (entry.target.tagName === 'H1' || entry.target.classList.contains('section-title')) {
-                    entry.target.classList.add('fade-in');
-                    entry.target.classList.add('pulse-delayed');
+                    // Verificar que no pertenece a la sección de planes
+                    if (!entry.target.closest('.planes')) {
+                        entry.target.classList.add('fade-in');
+                        entry.target.classList.add('pulse-delayed');
+                    }
                 } else if (entry.target.classList.contains('about-text') || entry.target.closest('.about-text')) {
                     entry.target.classList.add('fade-in-left');
                 } else if (entry.target.classList.contains('video-placeholder') || entry.target.classList.contains('logo-placeholder')) {
