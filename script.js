@@ -426,6 +426,69 @@ function initIntroVideo() {
     });
 }
 
+// Carrusel de reseñas
+function initReviewsCarousel() {
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.carousel-button.next');
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    
+    if (!track || slides.length === 0) return;
+    
+    // Crear puntos indicadores
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('carousel-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            moveToSlide(index);
+        });
+        dotsContainer.appendChild(dot);
+    });
+    
+    const dots = Array.from(dotsContainer.children);
+    
+    // Configurar tamaño de slides
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    
+    // Posicionar slides uno al lado del otro
+    slides.forEach((slide, index) => {
+        slide.style.left = slideWidth * index + 'px';
+    });
+    
+    let currentIndex = 0;
+    
+    // Función para mover a un slide específico
+    function moveToSlide(targetIndex) {
+        if (targetIndex < 0) targetIndex = slides.length - 1;
+        if (targetIndex >= slides.length) targetIndex = 0;
+        
+        track.style.transform = `translateX(-${slideWidth * targetIndex}px)`;
+        
+        // Actualizar dots activos
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === targetIndex);
+        });
+        
+        currentIndex = targetIndex;
+    }
+    
+    // Event listeners para botones
+    nextButton.addEventListener('click', () => {
+        moveToSlide(currentIndex + 1);
+    });
+    
+    prevButton.addEventListener('click', () => {
+        moveToSlide(currentIndex - 1);
+    });
+    
+    // Auto-avance cada 5 segundos
+    setInterval(() => {
+        moveToSlide(currentIndex + 1);
+    }, 4000);
+}
+
 // Ejecutar la función cuando el DOM esté cargado
 document.addEventListener('DOMContentLoaded', function() {
     initIntroVideo();
@@ -442,6 +505,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Inicializar el efecto de cursor fluido
     initFluid();
+    
+    // Inicializar el carrusel de reseñas
+    initReviewsCarousel();
 });
 
 // Código del efecto de cursor fluido
