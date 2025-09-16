@@ -1013,6 +1013,8 @@ h1 {
 }
 
 .footer-cta .btn-primary {
+    margin-top: 20px;
+    margin-bottom: 10px;
     padding: 8px 20px;
     font-size: 14px;
 }
@@ -1152,34 +1154,59 @@ h1 {
 
 /* Estilos para páginas legales */
 .legal-section {
-    padding: 120px 0 60px;
+    padding: 120px 0 80px;
     background-color: #0A0512;
+    position: relative;
+}
+
+.legal-section:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(160, 48, 255, 0.1) 0%, rgba(10, 5, 18, 0.95) 70%);
+    z-index: 0;
+}
+
+.legal-section .container {
+    margin-top: 100px;
+    position: relative;
+    z-index: 1;
 }
 
 .legal-section h1 {
     text-align: center;
-    margin-bottom: 40px;
-    color: #A030FF;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: #F5F5F5;
 }
 
 .legal-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.legal-item {
+    margin-bottom: 40px;
     background-color: rgba(10, 5, 18, 0.7);
     border-radius: 10px;
     padding: 30px;
-    margin-bottom: 30px;
-    border-left: 3px solid #A030FF;
+    border: 1px solid #8c52ff;
     box-shadow: 0 0 15px rgba(59, 12, 110, 0.3);
 }
 
-.legal-content h2 {
-    color: #12B0E9;
-    margin-top: 20px;
-    margin-bottom: 10px;
+.legal-item h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #0AE4FB;
 }
 
-.legal-content p {
-    margin-bottom: 20px;
-    line-height: 1.6;
+.legal-item p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #F5F5F5;
 }
 
 /* Responsive Design */

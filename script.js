@@ -358,6 +358,13 @@ function isMobileDevice() {
 
 // Función para inicializar el video de introducción
 function initIntroVideo() {
+    // Verificar si estamos en una página legal y salir de la función si es así
+    const currentPage = window.location.pathname;
+    if (currentPage.includes('terminos-y-condiciones.html') || currentPage.includes('acuerdo-confidencialidad.html')) {
+        // No aplicar el efecto de ocultamiento en páginas legales
+        return;
+    }
+    
     const videoContainer = document.getElementById('intro-video-container');
     const video = document.getElementById('intro-video');
     const mainContent = document.body;
