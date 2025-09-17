@@ -486,7 +486,7 @@ function initReviewsCarousel() {
     // Auto-avance cada 5 segundos
     setInterval(() => {
         moveToSlide(currentIndex + 1);
-    }, 4000);
+    }, 5000);
 }
 
 // Ejecutar la función cuando el DOM esté cargado
