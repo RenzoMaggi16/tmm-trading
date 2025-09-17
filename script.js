@@ -171,7 +171,7 @@ function enhanceFaqAnimations() {
                 
                 // Animar el título
                 heading.style.color = '#12B0E9';
-                heading.style.transition = 'color 0.4s cubic-bezier(0.215, 0.61, 0.355, 1)';
+                heading.style.transition = 'color 0s cubic-bezier(0.215, 0.61, 0.355, 1)';
                 
                 // Animar el borde
                 item.style.borderLeft = '5px solid #12B0E9';
