@@ -379,11 +379,15 @@ h1 {
     text-align: center;
 }
 .about-image img {
-    width: 100%;
+    width: 145%;
     height: auto;
     border-radius: 10px;
     border: 1px solid #8c52ff;
-    box-shadow: 0 0 20px rgba(59, 12, 110, 0.5);
+    box-shadow: 0 0 15px rgba(160, 48, 255, 0.3);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(-15%); /* Para compensar el ancho extra y mantenerla centrada */
 }
 
 /* Secrets Section */
@@ -1089,11 +1093,11 @@ h1 {
 .social-icons {
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 140%;
 }
 
 .social-icon {
-    font-size: 32px; /* Tamaño más grande */
+    font-size: 48px; /* Tamaño más grande */
     color: #F5F5F5;
     transition: all 0.3s ease;
 }
@@ -1101,6 +1105,17 @@ h1 {
 .social-icon:hover {
     color: #A030FF;
     transform: scale(1.2);
+}
+
+/* Estilo específico para el icono de Instagram */
+.social-icon .fa-instagram {
+    font-size: 24px; /* Tamaño más grande que el predeterminado */
+}
+
+/* Si quieres que solo el icono de Instagram sea más grande */
+a[href*="instagram.com"] .fab {
+    font-size: 24px; /* Tamaño más grande específicamente para Instagram */
+    transform: scale(1.2); /* Efecto adicional de escala */
 }
 
 .footer-cta {
