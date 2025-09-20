@@ -379,15 +379,13 @@ h1 {
     text-align: center;
 }
 .about-image img {
-    width: 145%;
+    width: 160%;
     height: auto;
     border-radius: 10px;
-    border: 1px solid #8c52ff;
-    box-shadow: 0 0 15px rgba(160, 48, 255, 0.3);
     display: block;
     margin-left: auto;
     margin-right: auto;
-    transform: translateX(-15%); /* Para compensar el ancho extra y mantenerla centrada */
+    transform: translateX(-20%); /* Para compensar el ancho extra y mantenerla centrada */
 }
 
 /* Secrets Section */
@@ -1121,6 +1119,7 @@ a[href*="instagram.com"] .fab {
 .footer-cta {
     display: flex;
     align-items: center;
+    flex-direction: column;
     gap: 20px;
 }
 
@@ -1792,5 +1791,80 @@ a[href*="instagram.com"] .fab {
     
     .plan-card:last-child {
         margin-bottom: 0;
+    }
+}
+
+/* Estilos para el botón flotante de Telegram */
+.telegram-float-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+}
+
+.telegram-float-button a {
+    display: block;
+    position: relative;
+}
+
+.telegram-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #0088cc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 136, 204, 0.5);
+    transition: all 0.3s ease;
+}
+
+.telegram-icon i {
+    font-size: 30px;
+    color: white;
+}
+
+.telegram-tooltip {
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.telegram-tooltip:after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 8px 0 8px 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+}
+
+.telegram-float-button a:hover .telegram-icon {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 136, 204, 0.7);
+}
+
+.telegram-float-button a:hover .telegram-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ocultar tooltip en dispositivos móviles */
+@media (max-width: 768px) {
+    .telegram-tooltip {
+        display: none;
     }
 }
